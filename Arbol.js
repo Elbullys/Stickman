@@ -1,10 +1,6 @@
-class Arbol{
-	constructor(c, al, an, x, y, rr, h, vel){
-		this.Color = c;
-		this.Altura = al;
-		this.Ancho = an;
-		this.X = x;
-		this.Y = y;
+class Arbol extends Figura{
+	constructor(c, al, an, x, y, rr, h, vel, id){
+        super(id, x, y, al, an, c);
         var radio = this.Ancho/2;
         this.RadioCopa = radio;
         this.RadioRueda = rr;
@@ -13,6 +9,8 @@ class Arbol{
 	}
 
 	Dibujar(contextoDeDibujo){
+
+        super.Dibujar(contextoDeDibujo);
 
 		//Crear una pluma con el color
 		contextoDeDibujo.strokeStyle = this.Color; // Stroke lines in blue
