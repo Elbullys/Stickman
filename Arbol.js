@@ -54,8 +54,12 @@ class Arbol extends Figura{
         contextoDeDibujo.fillStyle = this.Color;
 
 		for (var alfa = 0; alfa <= 2*Math.PI; alfa=alfa+0.01) {
-            xi = xc + ((this.RadioCopa+this.RadioRueda)*Math.sin(alfa))-(this.RadioRueda*Math.sin(alfa*(1+(this.RadioCopa/this.RadioRueda))));
-            yi = yc + ((this.RadioCopa+this.RadioRueda)*Math.cos(alfa))-(this.RadioRueda*Math.cos(alfa*(1+(this.RadioCopa/this.RadioRueda))));
+            var xiyi=((this.RadioCopa+this.RadioRueda)*Math.sin(alfa));
+            var radiovuelta=this.RadioRueda;
+            var alfa=(this.RadioCopa/this.RadioRueda);
+
+            xi = xc + (xiyi*Math.sin(alfa))-(radiovuelta*Math.sin(alfa*(1+alfa)));
+            yi = yc + (xiyi*Math.cos(alfa))-(radiovuelta*Math.cos(alfa*(1+alfa)));
             if(!isPrimerPunto){
                 //Trazar línea
                 //contextoDeDibujo.moveTo(xa, ya);
